@@ -2,13 +2,13 @@
 # Copyright (c) 2019-2020 P3TERX https://github.com/P3TERX/Actions-OpenWrt
 #=========================================================================
 
-name: Build-K3-Main-lede-k5.4
+name: Build-K3-Lite-immortalwrt-18.06-k5.4
 
 env:
-  REPO_URL: https://github.com/Marywanmary/lede
-  REPO_BRANCH: master
+  REPO_URL: https://github.com/immortalwrt/immortalwrt
+  REPO_BRANCH: openwrt-18.06-k5.4
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: config/K3Main.config
+  CONFIG_FILE: config/K3Lite.config
   DIY_P1_SH: config/K3diy1.sh
   DIY_P2_SH: config/K3diy2.sh
   UPLOAD_BIN_DIR: false
@@ -26,7 +26,7 @@ on:
         required: false
         default: 'false'
   schedule:
-    - cron: 20 20 * * 1,4  # 周一周四，北京时间20:30点执行(北京+8)，服务器为UTC时间12:30
+    - cron: 0 20 * * 1,4  # 周一周四，北京时间20:00点执行(北京+8)，服务器为UTC时间12:00
 
 # 点赞☆Star触发编译
   watch:
@@ -173,7 +173,7 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-        echo "release_tag=K3Main-lede-$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
+        echo "release_tag=K3Lite-imm-k5.4-$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
         touch release.txt
         [ $UPLOAD_WENSHUSHU = true ] && echo "🔗 [WENSHUSHU](${{ steps.WENSHUSHU.outputs.url }})" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
