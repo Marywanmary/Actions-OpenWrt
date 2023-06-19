@@ -8,7 +8,7 @@ env:
   REPO_URL: https://github.com/Marywanmary/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: config/K3Mian.config
+  CONFIG_FILE: config/K3Main.config
   DIY_P1_SH: config/K3diy1.sh
   DIY_P2_SH: config/K3diy2.sh
   UPLOAD_BIN_DIR: false
