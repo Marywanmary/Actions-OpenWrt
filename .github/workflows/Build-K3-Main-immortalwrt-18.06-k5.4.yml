@@ -2,7 +2,7 @@
 # Copyright (c) 2019-2020 P3TERX https://github.com/P3TERX/Actions-OpenWrt
 #=========================================================================
 
-name: Build-K3-Mian-immortalwrt-18.06-k5.4
+name: Build-K3-Main-immortalwrt-18.06-k5.4
 
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
@@ -173,7 +173,7 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-        echo "release_tag=K3Mian-imm-k5.4-$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
+        echo "release_tag=K3Main-imm-k5.4-$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
         touch release.txt
         [ $UPLOAD_WENSHUSHU = true ] && echo "🔗 [WENSHUSHU](${{ steps.WENSHUSHU.outputs.url }})" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
