@@ -1,7 +1,5 @@
 ## 斐讯Phicomm K3 自用固件 源码来自于LEAN，Actions自动编译
-cloudflarespeedtest运行无反应，脚本没有执行权限，用下面命令添加权限后正常运行  
-mingxiaoyu/luci-app-cloudflarespeedtest#56  
-chmod +x /usr/bin/cloudflarespeedtest/cloudflarespeedtest.sh  
+
 
 ## 5.4/5.10内核编译失败的原因
 https://github.com/coolsnowwolf/lede/issues/11255
@@ -19,7 +17,19 @@ fork https://github.com/coolsnowwolf/lede
 3.再次编译即可。
 
 ## Tips
-K3diy1个人喜好为软件源/主题源，K3diy2为对系统的修改。
+K3diy1个人喜好为软件源/主题源，K3diy2为对系统的修改。  
+
+cloudflarespeedtest运行无反应，脚本没有执行权限，用下面命令添加权限后正常运行  
+mingxiaoyu/luci-app-cloudflarespeedtest#56  
+chmod +x /usr/bin/cloudflarespeedtest/cloudflarespeedtest.sh  
+
+Lucky如果自行编译需要手动在Network中添加Lucky包  
+
+# AdguardHome相关：
+安装时不用额外添加adguardhome包，否则会造成2个ADH进程，直接安装luci-app-adguardhome就可以了  
+启动项AdGuardHome启动项被禁用无法更新核心的原因是没有赋予执行权限  
+/etc/init.d/AdGuardHome  
+X执行权限未赋予，至少要755，或者777，参考同目录其它ipk设置  
 
 ## 使用简介：
 科学部分PassWall1/Bypass/SSRP/VSSR默认只有Xray，PassWall2只有SSR协议。  
