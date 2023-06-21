@@ -25,6 +25,10 @@ chmod +x /usr/bin/cloudflarespeedtest/cloudflarespeedtest.sh
 
 Lucky如果自行编译需要手动在Network中添加Lucky包  
 
+# Openclash 打不开githubusercontent.com
+# https://github.com/vernesong/OpenClash/issues/1522
+因为DNS污染，覆写设置-DNS设置，勾选Fallback-Filter，然后flushdns即可。
+
 # AdguardHome相关：
 安装时不用额外添加adguardhome包，否则会造成2个ADH进程，直接安装luci-app-adguardhome就可以了  
 启动项AdGuardHome启动项被禁用无法更新核心的原因是没有赋予执行权限  
