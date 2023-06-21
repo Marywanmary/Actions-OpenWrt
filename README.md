@@ -64,9 +64,6 @@ luci-theme-argon
 luci-theme-argon-config  
 
 # Main
-luci-app-accesscontrol  
-luci-app-advancedsetting  
-luci-app-arpbind  
 luci-app-cloudflarespeedtest  
 luci-app-mwan3  
 luci-app-mwan3helper  
@@ -76,7 +73,10 @@ luci-app-wireguard
 
 
 # Super
+luci-app-accesscontrol  
 luci-app-adbyby-plus  
+luci-app-advanced
+luci-app-arpbind  
 luci-app-bypass  
 luci-app-easymesh  
 luci-app-eqos  
