@@ -26,7 +26,7 @@ on:
         required: false
         default: 'false'
   schedule:
-    - cron: 20 20 * * 4  # 周一周四，北京时间20:30点执行(北京+8)，服务器为UTC时间12:30
+    - cron: 20 20 * * 4  # 周四，北京时间20:30点执行(北京+8)，服务器为UTC时间12:30
 
 # 点赞☆Star触发编译
   watch:
