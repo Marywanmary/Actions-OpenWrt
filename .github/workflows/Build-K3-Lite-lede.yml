@@ -31,8 +31,8 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-  schedule:
-    - cron: 0 20 * * 4  # 周四，北京时间20:00点执行(北京+8)，服务器为UTC时间12:00
+#  schedule:
+#    - cron: 0 20 * * 4  # 周四，北京时间20:00点执行(北京+8)，服务器为UTC时间12:00
 
 # 点赞☆Star触发编译
   watch:
