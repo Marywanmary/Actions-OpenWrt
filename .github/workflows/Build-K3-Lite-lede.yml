@@ -2,13 +2,13 @@
 # Copyright (c) 2019-2020 P3TERX https://github.com/P3TERX/Actions-OpenWrt
 #=========================================================================
 
-name: Build-K3-Lite-lede-k5.4
+name: Build-K3-Lite-lede
 
 env:
-  REPO_URL: https://github.com/Marywanmary/lede
+  REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: config/K3Lite-yx.config
+  CONFIG_FILE: config/K3Lite.config
   DIY_P1_SH: config/K3diy1.sh
   DIY_P2_SH: config/K3diy2.sh
   UPLOAD_BIN_DIR: false
@@ -16,7 +16,13 @@ env:
   UPLOAD_WENSHUSHU: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-
+  COMPILE_DEPENDS: ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential 
+                   bzip2 ccache cmake cpio curl device-tree-compiler fastjar flex gawk gettext gcc-multilib g++-multilib 
+                   git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libfuse-dev libglib2.0-dev libgmp3-dev 
+                   libltdl-dev libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libpython3-dev libreadline-dev 
+                   libssl-dev libtool lrzsz mkisofs msmtp ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 
+                   python3-pyelftools python3-setuptools qemu-utils rsync scons squashfs-tools subversion swig texinfo 
+                   uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
 on:
   repository_dispatch:
   workflow_dispatch:
@@ -179,7 +185,7 @@ jobs:
         echo "status=success" >> $GITHUB_OUTPUT
 
     - name: 发布到Release
-      uses: softprops/action-gh-release@v0.1.15
+      uses: softprops/action-gh-release@v1
       if: steps.tag.outputs.status == 'success' && !cancelled()
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -189,7 +195,7 @@ jobs:
         files: ${{ env.FIRMWARE }}/*
 
     - name: 清理工作空间
-      uses: Mattraks/delete-workflow-runs@v2.0.4
+      uses: GitRML/delete-workflow-runs@main
       with:
         token: ${{ github.token }}
         repository: ${{ github.repository }}
@@ -197,7 +203,7 @@ jobs:
         keep_minimum_runs: 3
 
     - name: 移除旧的Realeases
-      uses: dev-drprasad/delete-older-releases@v0.2.1
+      uses: dev-drprasad/delete-older-releases@v0.3.2
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
         keep_latest: 9
