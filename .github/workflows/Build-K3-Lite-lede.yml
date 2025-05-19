@@ -44,7 +44,7 @@ jobs:
 
     steps:
     - name: 检查环境
-      uses: actions/checkout@v3
+      uses: actions/checkout@main
 
     - name: 查看服务器配置
       run: |
@@ -85,7 +85,7 @@ jobs:
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
     - name: 获取缓存
-      uses: klever1988/cachewrtbuild@main
+      uses: stupidloud/cachewrtbuild@main
       with:
         ccache: 'true'
         mixkey: 'bcm53'
