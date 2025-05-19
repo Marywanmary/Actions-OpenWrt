@@ -14,7 +14,7 @@
 #limitations under the License.
 #
 
-name: K3 firmware compile lede
+name: K3 Lite lede
 
 on:
   workflow_dispatch:
