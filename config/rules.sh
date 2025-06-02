@@ -23,7 +23,7 @@ GLOBAL_GITHUB_PROXY_URL=""
 SUBSCRIPTION_URLS=(
   # Change to your own subscription URL(s).
   "https://xn--cp3a08l.com/api/v1/client/subscribe?token=909f78b80b755c1018ef61da52294367#Proxy_Server_01"
-  "http://fly.cfasia.dpdns.org/moon#Proxy_Server_02"
+  "https://fly.cfasia.dpdns.org/moon#Proxy_Server_02"
 )
 
 # Required.
