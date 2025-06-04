@@ -18,8 +18,8 @@ echo '清除默认密码password'
 sed -i '/V4UetPzk$CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings
 
 echo '替换K3无线驱动为69027'
-rm -rf ./package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/brcmfmac4366c-pcie.bin
-svn export https://github.com/xiangfeidexiaohuo/Phicomm-K3_Wireless-Firmware/trunk/brcmfmac4366c-pcie.bin_69027 ./package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/brcmfmac4366c-pcie.bin
+#rm -rf ./package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/brcmfmac4366c-pcie.bin
+#svn export https://github.com/xiangfeidexiaohuo/Phicomm-K3_Wireless-Firmware/trunk/brcmfmac4366c-pcie.bin_69027 ./package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/brcmfmac4366c-pcie.bin
 
 echo '移除主页跑分信息显示'
 sed -i 's/ <%=luci.sys.exec("cat \/etc\/bench.log") or ""%>//g' package/lean/autocore/files/arm/index.htm
@@ -38,15 +38,15 @@ sed -i 's/ <%=luci.sys.exec("cat \/etc\/bench.log") or ""%>//g' package/lean/aut
 #sed -i "s/'3.openwrt.pool.ntp.org'/'ntp4.aliyun.com'/g" package/base-files/files/bin/config_generate
 #cat package/base-files/files/bin/config_generate |grep system.ntp.server=
 
-echo '修改内核版本，默认为5.4'
-echo '当前内核版本'
-cat target/linux/bcm53xx/Makefile |grep KERNEL_PATCHVER
+#echo '修改内核版本，默认为5.4'
+#echo '当前内核版本'
+#cat target/linux/bcm53xx/Makefile |grep KERNEL_PATCHVER
 #sed -i 's/KERNEL_PATCHVER:=*.*/KERNEL_PATCHVER:=5.4/g' target/linux/bcm53xx/Makefile
 #sed -i 's/KERNEL_PATCHVER:=*.*/KERNEL_PATCHVER:=5.10/g' target/linux/bcm53xx/Makefile
 #sed -i 's/KERNEL_PATCHVER:=*.*/KERNEL_PATCHVER:=5.15/g' target/linux/bcm53xx/Makefile
 #cat target/linux/bcm53xx/Makefile |grep KERNEL_PATCHVER
-echo '修改后内核版本'
-cat target/linux/bcm53xx/Makefile |grep KERNEL_PATCHVER
+#echo '修改后内核版本'
+#cat target/linux/bcm53xx/Makefile |grep KERNEL_PATCHVER
 
 #echo '修改adguardhome的下载型号为armv5'
 #sed -i 's/\${Arch}/armv5/g' package/lean/luci-app-adguardhome/root/usr/share/AdGuardHome/links.txt
