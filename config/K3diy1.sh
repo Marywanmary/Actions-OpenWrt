@@ -9,13 +9,13 @@
 
 echo '添加argon/kucat主题'
 rm -rf package/lean/luci-theme-argon  
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon
+#git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon
 git clone -b https://github.com/jerrykuku/luci-app-argon-config package/lean/luci-app-argon-config
-git clone https://github.com/sirpdboy/luci-theme-kucat package/lean/luci-theme-kucat
+#git clone https://github.com/sirpdboy/luci-theme-kucat package/lean/luci-theme-kucat
 #git clone https://github.com/sirpdboy/luci-app-advancedplus package/lean/luci-app-advancedplus
 
 #echo '设置默认argon主题'
-#sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci/Makefile
 
 #echo '添加AdGuardHome'
 #git clone https://github.com/AdguardTeam/AdGuardHome package/lean/AdGuardHome
