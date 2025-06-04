@@ -14,7 +14,7 @@
 #limitations under the License.
 #
 
-name: K3 Lite lede
+name: K3-Lite
 
 on:
   workflow_dispatch:
@@ -141,23 +141,13 @@ jobs:
         name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
 
-    - name: 发布到文叔叔网盘
-      id: WENSHUSHU
-      if: steps.organize.outputs.status == 'success' && env.UPLOAD_WENSHUSHU == 'true' && !cancelled()
-      run: |
-          curl -fsSL git.io/file-transfer | sh
-          ./transfer wss -s -p 16 --no-progress ${FIRMWARE} 2>&1 | tee WENSHUSHU.log
-          echo "::warning file=WENSHUSHU.cn::$(cat WENSHUSHU.log | grep https)"
-          echo "url=$(cat WENSHUSHU.log | grep https | cut -f3 -d" ")" >> $GITHUB_OUTPUT
-
-    - name: 生成Tag标识
+    - name: 生成Release标识
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-        echo "release_tag=K3Lite-lede-$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
+        echo "release_tag=K3-lede-$(date +"%Y.%m.%d-%H%M")" >> "$GITHUB_OUTPUT"
         touch release.txt
-        [ $UPLOAD_WENSHUSHU = true ] && echo "🔗 [WENSHUSHU](${{ steps.WENSHUSHU.outputs.url }})" >> release.txt
-        echo "status=success" >> $GITHUB_OUTPUT
+        echo "STATUS=success" >> "$GITHUB_OUTPUT"
 
     - name: 发布到Release
       uses: softprops/action-gh-release@v1
